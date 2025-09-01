@@ -1,12 +1,11 @@
 import os
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
-from duckduckgo_search import DDGS
+from ddgs import DDGS   # <-- updated import
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# --- Live Search Helpers ---
 def search_train(from_city, to_city):
     query = f"{from_city} to {to_city} train ticket price site:irctc.co.in"
     with DDGS() as ddgs:
@@ -29,12 +28,9 @@ def search_flight(from_city, to_city):
         )
         return [r["title"] + " - " + r["body"] for r in results]
 
-
-# --- Main Trip Planner ---
 def plan_trip(from_location, destination, days, interests):
     llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", google_api_key=GEMINI_API_KEY)
 
-    # Get live data
     train_info = search_train(from_location, destination)
     flight_info = search_flight(from_location, destination)
 
@@ -55,13 +51,13 @@ def plan_trip(from_location, destination, days, interests):
     {flight_text}
 
     ### Instructions for Output:
-    1. First, summarize the above real train/flight info into simple recommendations.
-    2. Provide a structured day-wise itinerary for the stay in {destination}.
+    1. Summarize the above live train/flight info into recommendations.
+    2. Provide a structured day-wise itinerary for the stay.
     3. Suggest local dining options and activities based on the user's interests.
-    4. Add puns, jokes, or light humor related to travel and food.
-    5. VERY IMPORTANT: If {destination} is currently unsafe (conflicts, advisories, disasters), warn the user clearly: "⚠️ Not safe to visit now."
+    4. Add puns, jokes, or light humor.
+    5. VERY IMPORTANT: If {destination} is unsafe, warn the user: "⚠️ Not safe to visit now."
 
-    Format the output with these sections:
+    Format with:
     - Travel Options
     - Day-wise Itinerary
     - Dining & Activities
