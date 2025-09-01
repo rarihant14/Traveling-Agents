@@ -20,7 +20,7 @@ if not st.session_state.user:
 
     if choice == "Signup" and st.button("Signup"):
         signup_user(email, password)
-        st.success("Account created! Please log in.")
+        st.success("Account created!make sure to check E-mail box, Before Please log in .")
 
     if choice == "Login" and st.button("Login"):
         user = login_user(email, password)
