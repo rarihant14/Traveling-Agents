@@ -1,5 +1,5 @@
 streamlit
 supabase
 python-dotenv
-duckduckgo-search
+ddgs
 langchain-google-genai
