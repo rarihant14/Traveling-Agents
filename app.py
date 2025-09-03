@@ -25,7 +25,7 @@ if not st.session_state.user:
             try:
                 result = signup_user(email, password)
                 if result.user:
-                    st.success("✅ Account created! Please log in now.")
+                    st.success("✅ Account created! Please check E-mail and make sure u conform it.")
                 else:
                     st.error("❌ Signup failed. Try a different email.")
             except Exception as e:
