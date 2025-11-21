@@ -8,7 +8,7 @@ Built using **Gemini**, **Streamlit**, and **Supabase**.
 
 ## ✨ Key Features
 - 🧠 **Multi-Agent Architecture:**  
-  Analyzer, Recommender, Planner, and Executor agents collaborate to create intelligent trip plans.
+  agents collaborate to create intelligent trip plans.
 - 📦 **Supabase Integration:**  
   - User authentication and session storage  
   - Real-time trip data syncing and history tracking  
@@ -22,7 +22,7 @@ Built using **Gemini**, **Streamlit**, and **Supabase**.
 - 🪄 **Streamlit Dashboard:**  
   Interactive front-end to visualize itineraries, costs, and recommendations.
 - 🔗 **LLM Integrations:**  
-  Powered by **Gemini** (reasoning) + **CrewAI** (multi-agent orchestration).
+  Powered by **Gemini** (reasoning)
 
 ---
 
@@ -32,7 +32,7 @@ Example Use Cases
 
 🧳 Real-time itinerary editing and saving using Supabase
 
-📊 Compare trips, hotels, and flight routes
+📊 Compare trips, hotels, and flight routes(commented for now)
 
 💬 Chat-based re-planning and feedback loop
 
